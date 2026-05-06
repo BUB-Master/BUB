@@ -1,20 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BUB</title>
   <style>
-    body { background:#0f0f0f; color:white; font-family:Arial; text-align:center; padding:50px; }
-    h1 { color:#ff0000; font-size:60px; margin-bottom:40px; }
-    .hub { background:#1f1f1f; padding:40px; margin:20px auto; max-width:600px; border-radius:15px; border:3px solid #ff0000; }
-    a { color:#ff0000; font-size:28px; text-decoration:none; }
-    a:hover { color:white; }
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #ff0000;
+      font-size: 60px;
+      margin-bottom: 40px;
+    }
+    .hub {
+      background: #1f1f1f;
+      padding: 40px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 15px;
+      border: 3px solid #ff0000;
+    }
+    a {
+      color: #ff0000;
+      font-size: 28px;
+      text-decoration: none;
+    }
+    a:hover {
+      color: white;
+    }
+    /* overlay styles */
+    .auth-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+    }
+    .auth-box {
+      background: #1a1a1a;
+      padding: 24px;
+      border-radius: 10px;
+      border: 2px solid #ff0000;
+      text-align: center;
+      width: 320px;
+    }
+    .auth-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #0f0f0f;
+      color: #fff;
+      font-size: 16px;
+    }
+    .auth-box button {
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: 0;
+      background: #ff0000;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .error {
+      color: #ff8080;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .disabled-link {
+      pointer-events: none;
+      opacity: 0.4;
+    }
   </style>
 </head>
 <body>
   <h1>BUB</h1>
- 
+
   <div class="hub">
     <h2>Main Hub</h2>
     <a href="games/thebub.html">→ ENTER MAIN HUB</a>
@@ -22,14 +95,99 @@
   <div class="hub">
     <h2>Secondary Game Hub</h2>
     <a href="games/thehub.html">→ ENTER SECONDARY HUB</a>
-      <div class="hub">
-        </div>
-    <h2> proxy</h2>
+    <div class="hub"></div>
+    <h2>proxy</h2>
     <a href="games/thegub.html">→ ENTER MAIN HUB</a>
   </div>
-      <h2> kdata</h2>
-    <a href="games/kdata.html">→ ENTER MAIN HUB</a>
+  <h2>kdata</h2>
+  <a href="games/kdata.html">→ ENTER MAIN HUB</a>
+
+  <!-- Authentication overlay -->
+  <div id="authOverlay" class="auth-overlay" aria-hidden="false">
+    <div class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <h2 id="authTitle">Please log in</h2>
+      <div>Enter the password to continue</div>
+      <form id="authForm" onsubmit="return false;">
+        <input id="pwdInput" type="password" autocomplete="current-password" placeholder="Password" />
+        <div>
+          <button id="pwdBtn" type="button">Log in</button>
+        </div>
+      </form>
+      <div id="authError" class="error" style="display:none"></div>
+    </div>
   </div>
-  
+
+  <script>
+    (function () {
+      const PASSWORD = '2489'; // Your password here
+
+      const overlay = document.getElementById('authOverlay');
+      const form = document.getElementById('authForm');
+      const input = document.getElementById('pwdInput');
+      const btn = document.getElementById('pwdBtn');
+      const errorDiv = document.getElementById('authError');
+      const LINKS = Array.from(document.querySelectorAll('a'));
+
+      function isAuthenticated() {
+        return sessionStorage.getItem('authenticated') === 'true';
+      }
+
+      function setAuthenticated() {
+        sessionStorage.setItem('authenticated', 'true');
+      }
+
+      function showOverlay() {
+        overlay.style.display = 'flex';
+        overlay.setAttribute('aria-hidden', 'false');
+        LINKS.forEach((a) => a.classList.add('disabled-link'));
+        input.focus();
+      }
+
+      function hideOverlay() {
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden', 'true');
+        LINKS.forEach((a) => a.classList.remove('disabled-link'));
+      }
+
+      LINKS.forEach((a) => {
+        a.addEventListener(
+          'click',
+          function (e) {
+            if (!isAuthenticated()) {
+              e.preventDefault();
+              showOverlay();
+            }
+          },
+          true
+        );
+      });
+
+      function handleLoginAttempt() {
+        const val = input.value || '';
+        if (val === PASSWORD) {
+          setAuthenticated();
+          hideOverlay();
+          errorDiv.style.display = 'none';
+          input.value = '';
+        } else {
+          errorDiv.textContent = 'Incorrect password.';
+          errorDiv.style.display = 'block';
+          input.value = '';
+          input.focus();
+        }
+      }
+
+      btn.addEventListener('click', handleLoginAttempt);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleLoginAttempt();
+      });
+
+      if (!isAuthenticated()) {
+        showOverlay();
+      } else {
+        hideOverlay();
+      }
+    })();
+  </script>
 </body>
 </html>
