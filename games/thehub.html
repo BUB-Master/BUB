@@ -1,103 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUB - DuckMath</title>
-  <style>
-    body {
-      margin: 0; padding: 0; background: #0f0f0f; color: white;
-      font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden;
-      display: flex; flex-direction: column; height: 100vh;
-    }
-    header {
-      background: #ff0000; padding: 15px; text-align: center; font-size: 28px;
-      font-weight: bold; text-shadow: 0 0 10px #ff0000;
-    }
-    .game {
-      flex: 1; display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: 20px;
-    }
-    .duck {
-      font-size: 120px;
-      animation: bounce 0.8s infinite alternate;
-    }
-    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+<div style="background: #1a1a1a; color: #fff; padding: 20px; border-radius: 15px; font-family: sans-serif; text-align: center; border: 2px solid #333;">
+    <h1 style="color: #00ffcc; text-transform: uppercase; letter-spacing: 2px;">ULTIMATE GAME HUB</h1>
+    <p style="color: #aaa;">Select a category or play the featured game below!</p>
     
-    .problem {
-      font-size: 48px; font-weight: bold; color: #ff0000;
-    }
-    input {
-      font-size: 32px; padding: 15px; width: 200px; text-align: center;
-      background: #1f1f1f; color: white; border: 3px solid #ff0000; border-radius: 10px;
-    }
-    button {
-      padding: 15px 40px; font-size: 24px; background: #ff0000; color: black;
-      border: none; border-radius: 10px; cursor: pointer;
-    }
-    .score {
-      font-size: 28px; color: #00ff00;
-    }
-    .feedback {
-      font-size: 32px; min-height: 50px;
-    }
-  </style>
-</head>
-<body>
+    <!-- Category Navigation -->
+    <div style="margin-bottom: 20px;">
+        <button onclick="document.getElementById('game-frame').src='https://www.htmlgames.com/html5-games-for-your-site/'" style="background: #333; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer;">All Games</button>
+        <button onclick="document.getElementById('game-frame').src='https://duckmath.org'" style="background: #333; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer;">Multiplayer</button>
+        <button onclick="document.getElementById('game-frame').src='https://classic.minecraft.net'" style="background: #333; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer;">Sandbox</button>
+    </div>
 
-  <header>BUB - DUCKMATH 🦆</header>
-
-  <div class="game">
-    <div class="duck">🦆</div>
+    <!-- Main Game Window -->
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; background: #000;">
+        <iframe id="game-frame" src="https://www.htmlgames.com/html5-games-for-your-site/" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                allowfullscreen>
+        </iframe>
+    </div>
     
-    <div class="score">Score: <span id="score">0</span></div>
-    
-    <div class="problem" id="problem">12 + 8 = ?</div>
-    
-    <input type="number" id="answer" placeholder="Answer" autofocus>
-    <button onclick="checkAnswer()">Submit</button>
-    
-    <div class="feedback" id="feedback"></div>
-  </div>
-
-  <script>
-    let score = 0;
-    let num1, num2, correctAnswer;
-
-    function newProblem() {
-      num1 = Math.floor(Math.random() * 20) + 1;
-      num2 = Math.floor(Math.random() * 20) + 1;
-      correctAnswer = num1 + num2;
-      
-      document.getElementById("problem").textContent = `${num1} + ${num2} = ?`;
-      document.getElementById("answer").value = "";
-      document.getElementById("feedback").textContent = "";
-    }
-
-    function checkAnswer() {
-      const userAnswer = parseInt(document.getElementById("answer").value);
-      const feedback = document.getElementById("feedback");
-      
-      if (userAnswer === correctAnswer) {
-        score += 10;
-        document.getElementById("score").textContent = score;
-        feedback.style.color = "#00ff00";
-        feedback.textContent = "✅ Correct! Good job ducky!";
-        newProblem();
-      } else {
-        feedback.style.color = "#ff0000";
-        feedback.textContent = `❌ Wrong! ${num1} + ${num2} = ${correctAnswer}`;
-      }
-    }
-
-    // Start game
-    newProblem();
-
-    // Allow pressing Enter
-    document.getElementById("answer").addEventListener("keypress", function(e) {
-      if (e.key === "Enter") checkAnswer();
-    });
-  </script>
-
-</body>
-</html>
+    <p style="margin-top: 15px; font-size: 12px; color: #666;">Note: Some games may take a moment to load depending on your connection.</p>
+</div>
