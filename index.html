@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BUB</title>
+  <title>BUB - Main Hub</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; background: #111; color: white; display: flex; height: 100vh; overflow: hidden; }
-    
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f0f0f; color: #fff; height: 100vh; display: flex; overflow: hidden; }
+
     /* Sidebar */
     .sidebar {
-      width: 220px;
+      width: 240px;
       background: #1a1a1a;
       padding: 20px 0;
       border-right: 1px solid #333;
     }
     .logo {
-      padding: 0 20px 20px;
-      font-size: 28px;
+      font-size: 42px;
       font-weight: bold;
-      color: #0f0;
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 40px;
     }
     .menu a {
       display: block;
-      padding: 12px 25px;
+      padding: 15px 25px;
       color: #ccc;
       text-decoration: none;
-      transition: 0.2s;
+      font-size: 18px;
     }
     .menu a:hover {
       background: #333;
@@ -36,26 +37,39 @@
     /* Main Content */
     .main {
       flex: 1;
-      padding: 20px;
-      background: white;
-      color: black;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 30px;
+    }
+    h1 {
+      font-size: 48px;
+      color: #00ff00;
+    }
+    .hub {
+      background: #1f1f1f;
+      padding: 30px 50px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 600px;
       text-align: center;
+      border: 2px solid #00ff00;
     }
-    .blocked {
-      font-size: 32px;
-      margin-bottom: 10px;
+    .hub h2 {
+      color: #00ff00;
+      margin-bottom: 15px;
     }
-    .gnome-container {
-      margin: 30px 0;
-    }
-    .credits {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #666;
+    .hub a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 30px;
+      background: #00ff00;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -65,36 +79,25 @@
   <div class="sidebar">
     <div class="logo">BUB</div>
     <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">main hub</a>
-      <a href="#">geometry dash</a>
-      <a href="#">secondary game hub</a>
-      <a href="#">credits</a>
-      <a href="#">ol</a>
-      <a href="#">mc 1.21.11</a>
-      <a href="#">interstellar for proxies</a>
-      <a href="#">s</a>
-      <a href="#">w</a>
-      <a href="#">urmomshouse</a>
-      <a href="#">gumer</a>
-      <a href="#">yttomp3 MUSCI</a>
+      <a href="#">🏠 Main Hub</a>
+      <a href="#">🎮 Secondary Game Hub</a>
     </div>
   </div>
 
-  <!-- Main Area -->
+  <!-- Main Content -->
   <div class="main">
-    <div>securly://</div>
-    <h1 class="blocked">Looks like this page isn't allowed</h1>
-    <p>This page has been blocked.</p>
+    <h1>Welcome to BUB</h1>
 
-    <div class="gnome-container">
-      <img src="https://i.imgur.com/5z5z5z5.png" alt="Gnome" width="300"> <!-- Replace with real gnome image if you want -->
+    <div class="hub">
+      <h2>Main Hub</h2>
+      <p>Unblocked Games • Proxies • Tools</p>
+      <a href="#">Enter Main Hub →</a>
     </div>
 
-    <div class="credits">
-      Blocking details<br>
-      URL: 964716718-atari-embeds.googleusercontent.com<br>
-      Reason: Blocked by Category
+    <div class="hub">
+      <h2>Secondary Game Hub</h2>
+      <p>More Games • Atari • Geometry Dash • Minecraft</p>
+      <a href="#">Enter Secondary Hub →</a>
     </div>
   </div>
 
