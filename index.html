@@ -5,72 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BUB</title>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: Arial, sans-serif; background:#f8f9fa; color:#000; display:flex; height:100vh; overflow:hidden; }
-
-    .sidebar {
-      width: 220px;
-      background: #1c1c1c;
-      color: white;
-      padding: 20px 10px;
-    }
-    .logo { font-size: 28px; font-weight: bold; margin-bottom: 30px; padding-left: 10px; }
-    .menu a {
-      display: block;
-      padding: 10px 20px;
-      color: #ccc;
-      text-decoration: none;
-    }
-    .menu a:hover { background: #333; color: white; }
-
-    .main {
-      flex: 1;
-      padding: 40px;
-      text-align: center;
-      background: white;
-    }
-    .blocked { font-size: 32px; margin: 20px 0; }
-    .gnome { margin: 30px 0; }
+    body { background:#0f0f0f; color:white; font-family:Arial; text-align:center; padding:50px; }
+    h1 { color:#ff0000; font-size:60px; margin-bottom:40px; }
+    .hub { background:#1f1f1f; padding:40px; margin:20px auto; max-width:600px; border-radius:15px; border:3px solid #ff0000; }
+    a { color:#ff0000; font-size:28px; text-decoration:none; }
+    a:hover { color:white; }
   </style>
 </head>
 <body>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="logo">BUB</div>
-    <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">main hub</a>
-      <a href="#">geometry dash</a>
-      <a href="#">secondary game hub</a>
-      <a href="#">credits</a>
-      <a href="#">ol</a>
-      <a href="#">mc 1.21.11</a>
-      <a href="#">interstellar for proxies</a>
-      <a href="#">s</a>
-      <a href="#">w</a>
-      <a href="#">urmomshouse</a>
-      <a href="#">gumer</a>
-      <a href="#">yttomp3 MUSCI</a>
-    </div>
+  <h1>BUB</h1>
+  
+  <div class="hub">
+    <h2>Main Hub</h2>
+    <a href="games/mainhub.html">→ ENTER MAIN HUB</a>
   </div>
 
-  <!-- Main Content -->
-  <div class="main">
-    <div style="color:#666; font-size:20px;">securly://</div>
-    <h1 class="blocked">Looks like this page isn't allowed</h1>
-    <p>This page has been blocked.</p>
-
-    <div class="gnome">
-      <img src="https://i.imgur.com/5z5z5z5.png" width="320" alt="Gnome"> <!-- You can change this image link if you want -->
-    </div>
-
-    <div style="margin-top:30px; font-size:18px;">
-      Blocking details<br>
-      URL: 964716718-atari-embeds.googleusercontent.com<br>
-      Reason: Blocked by Category
-    </div>
+  <div class="hub">
+    <h2>Secondary Game Hub</h2>
+    <a href="games/secondaryhub.html">→ ENTER SECONDARY HUB</a>
   </div>
-
 </body>
 </html>
