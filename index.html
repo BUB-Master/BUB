@@ -6,120 +6,42 @@
   <title>BUB</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Segoe UI', Arial, sans-serif; 
-      background: #0f0f0f; 
-      color: white; 
-      height: 100vh; 
-      display: flex; 
-      overflow: hidden; 
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: white; height: 100vh; display: flex; overflow: hidden; }
 
-    /* Sidebar */
-    .sidebar {
-      width: 240px;
-      background: #1a1a1a;
-      padding: 20px 0;
-      border-right: 1px solid #330000;
-    }
-    .logo {
-      font-size: 42px;
-      font-weight: bold;
-      color: #ff0000;
-      text-align: center;
-      margin-bottom: 40px;
-      text-shadow: 0 0 10px #ff0000;
-    }
-    .menu a {
-      display: block;
-      padding: 15px 25px;
-      color: #ffcccc;
-      text-decoration: none;
-      font-size: 18px;
-    }
-    .menu a:hover {
-      background: #330000;
-      color: white;
-    }
+    .sidebar { width: 240px; background: #1a1a1a; padding: 20px 0; border-right: 1px solid #330000; }
+    .logo { font-size: 42px; font-weight: bold; color: #ff0000; text-align: center; margin-bottom: 40px; text-shadow: 0 0 10px #ff0000; }
+    .menu a { display: block; padding: 15px 25px; color: #ffcccc; text-decoration: none; font-size: 18px; }
+    .menu a:hover { background: #330000; color: white; }
 
-    /* Main Content */
-    .main {
-      flex: 1;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-    }
-    h1 {
-      font-size: 52px;
-      color: #ff0000;
-      text-shadow: 0 0 15px #ff0000;
-    }
-    .hub {
-      background: #1f1f1f;
-      padding: 35px 60px;
-      border-radius: 15px;
-      width: 85%;
-      max-width: 650px;
-      text-align: center;
-      border: 3px solid #ff0000;
-      box-shadow: 0 0 25px #ff0000;
-      transition: 0.3s;
-    }
-    .hub:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #ff0000;
-    }
-    .hub h2 {
-      color: #ff0000;
-      margin-bottom: 15px;
-      font-size: 32px;
-    }
-    .hub a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 16px 50px;
-      background: #ff0000;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      border-radius: 10px;
-    }
-    .hub a:hover {
-      background: #ff3333;
-      transform: scale(1.1);
-    }
+    .main { flex: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    h1 { font-size: 52px; color: #ff0000; text-shadow: 0 0 15px #ff0000; }
+    .hub { background: #1f1f1f; padding: 35px 60px; border-radius: 15px; width: 85%; max-width: 650px; text-align: center; border: 3px solid #ff0000; box-shadow: 0 0 25px #ff0000; }
+    .hub:hover { transform: scale(1.05); }
+    .hub h2 { color: #ff0000; margin-bottom: 15px; font-size: 32px; }
+    .hub a { display: inline-block; margin-top: 20px; padding: 16px 50px; background: #ff0000; color: black; text-decoration: none; font-weight: bold; font-size: 20px; border-radius: 10px; }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <div class="logo">BUB</div>
     <div class="menu">
-      <a href="#">🏠 Home</a>
-      <a href="mainhub.html">Main Hub</a>
-      <a href="secondaryhub.html">Secondary Game Hub</a>
+      <a href="games/mainhub.html">🏠 Main Hub</a>
+      <a href="games/secondaryhub.html">🎮 Secondary Game Hub</a>
     </div>
   </div>
 
-  <!-- Main Content -->
   <div class="main">
     <h1>WELCOME TO BUB</h1>
 
     <div class="hub">
       <h2>Main Hub</h2>
-      <p>Unblocked Games • Proxies • Tools</p>
-      <a href="mainhub.html">ENTER MAIN HUB →</a>
+      <a href="mainhub/index.html">ENTER MAIN HUB →</a>
     </div>
 
     <div class="hub">
       <h2>Secondary Game Hub</h2>
-      <p>Geometry Dash • Atari • More Games</p>
-      <a href="secondaryhub.html">ENTER SECONDARY HUB →</a>
+      <a href="Secondaryhub/index.html">ENTER SECONDARY HUB →</a>
     </div>
   </div>
 
