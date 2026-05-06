@@ -1,2 +1,3 @@
 # BUB
-Hello IF your Reading This Your Probably From My school All credit Goes to me if fork please like this i try my hardest
+HI Guys Alex Here If You Are Reading This This means i succeeded at making a working bub hub
+Cya meet me at break and lunch for launch codes to access the games.
